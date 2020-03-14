@@ -2,7 +2,7 @@ import Axios from 'axios-observable';
 import * as express from 'express';
 import * as cheerio from 'cheerio';
 import { AxiosResponse } from 'axios';
-import e = require('express');
+import cors from 'cors';
 
 const app = express();
 
@@ -57,7 +57,13 @@ const constructArticlesMarkup = (articles: Article[]): string => {
   return `<div class="articles">${htmlArticles.join('')}</div>`;
 };
 
-app.get('/content/json', (_, res) => {
+const corsOptions = {
+  origin: '*'
+};
+
+const c = cors(corsOptions);
+
+app.get('/content/json', c, (_, res) => {
   Axios.get(
     'https://omni.se/t/coronaviruset/3ee2d7f6-56f1-4573-82b9-a4164cbdc902'
   ).subscribe(
@@ -72,7 +78,7 @@ app.get('/content/json', (_, res) => {
   );
 });
 
-app.get('/content/html', (_, res) => {
+app.get('/content/html', c, (_, res) => {
   Axios.get(
     'https://omni.se/t/coronaviruset/3ee2d7f6-56f1-4573-82b9-a4164cbdc902'
   ).subscribe(
