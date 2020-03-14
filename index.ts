@@ -2,7 +2,7 @@ import Axios from 'axios-observable';
 import * as express from 'express';
 import * as cheerio from 'cheerio';
 import { AxiosResponse } from 'axios';
-import cors from 'cors';
+import * as cors from 'cors';
 
 const app = express();
 
