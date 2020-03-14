@@ -1,0 +1,17 @@
+# Node build artifacts
+node_modules
+npm-debug.log
+
+# Local development
+*.env
+*.dev
+.DS_Store
+yarn-error.log
+
+# Docker
+Dockerfile
+docker-compose.yml
+json.sqlite
+
+# ts build artifacts
+index.js
