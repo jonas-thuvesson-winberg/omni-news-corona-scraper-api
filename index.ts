@@ -93,4 +93,6 @@ app.get('/content/html', c, (_, res) => {
   );
 });
 
-app.listen(3000, () => console.log(`Example app listening on port 3000!`));
+const port = 3001;
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
